@@ -36,6 +36,7 @@ function comparator(a, b) {
   **function** The equals function to use. This is used for checking whether or not an element is
    in the queue. By default, equals will check if 2 values are equal by a simple `a == b` check.
    If this is not enough, write your own equals function.
+
 ### Methods
 * `clear()`:
   Clears the complete queue, removing all elements, restoring the internal queue to an empty array.
@@ -52,5 +53,6 @@ function comparator(a, b) {
   complete binary tree.
 * `contains(obj)`:
   Checks if the given `obj` is present in the queue.
+
 ## License
 This code is released in the public domain. I do not claim any ownership and waive all my rights.
