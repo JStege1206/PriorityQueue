@@ -68,5 +68,6 @@ function compare(a, b) {
   Sets the equals function to be used.
 * `getEquals()`
   Returns the equals function used.
+
 ## License
 This code is released in the public domain. I do not claim any ownership and waive all my rights.
