@@ -47,9 +47,9 @@ function compare(a, b) {
   complete binary tree.
 * `contains(obj)`:
   Checks if the given `obj` is present in the queue.
-* `getData(reference)`:
-  Returns the internal queue array. Mostly usable for debugging purposes. The reference argument
-  indicates whether the returned array is passed by reference or if a copy is returned. This
+* `getData()`:
+  Returns a copy of the internal queue array. Mostly usable for debugging purposes. When
+  given an argument representing true, the returned array is passed by reference. This
   argument is optional. Note that this will not return a sorted array, it will return the
   internal representation of the queue.
 * `setData(data)`:

@@ -1,0 +1,21 @@
+{
+  "name": "PriorityQueue",
+  "version": "0.9.0",
+  "description": "A priority queue implementation in JavaScript using a binary min heap.",
+  "main": "priorityqueue.js",
+  "directories": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:j-stege/PriorityQueueJS.git"
+  },
+  "keywords": [
+    "priority-queue",
+    "queue",
+    "binary-heap"
+  ],
+  "author": "Jelle Stege <jstege1206@gmail.com>",
+  "license": "MIT"
+}

@@ -111,12 +111,12 @@ if (!('jstege1206' in net)) {
     if (this.queueLength == 0) {
       return null;
     }
-    var s = --this.queueLength;
+    this.queueLength--;
     var result = this.queue[0];
-    var x = this.queue[s];
-    this.queue[s] = null;
-    if (s != 0) {
-      _siftDown(0, x, this.queue, this.queueLength, this.comparator);
+    var lastElement = this.queue[this.queueLength];
+    delete this.queue[this.queueLength];
+    if (this.queueLength != 0) {
+      _siftDown(0, lastElement, this.queue, this.queueLength, this.comparator);
     }
     return result;
   };
@@ -126,12 +126,7 @@ if (!('jstege1206' in net)) {
    * @param {*} obj The object to store in the queue.
    */
   PriorityQueue.prototype.offer = function(obj) {
-    this.queueLength++;
-    if (this.queueLength - 1 == 0) {
-      this.queue[0] = obj;
-    } else {
-      _siftUp(this.queueLength - 1, obj, this.queue, this.comparator);
-    }
+    _siftUp(this.queueLength++, obj, this.queue, this.comparator);
   };
 
   /**
@@ -143,12 +138,13 @@ if (!('jstege1206' in net)) {
    * and removed.
    */
   PriorityQueue.prototype.remove = function(obj) {
-    var i = _indexOf(obj, this.queue, this.queueLength, this.equals);
-    if (i == -1) {
+    var index = _indexOf(obj, this.queue, this.queueLength, this.equals);
+    if (index == -1) {
       return false;
     } else {
       this.queueLength--;
-      _removeAt(i, this.queue, this.queueLength, this.comparator, this.equals);
+      _removeAt(index, this.queue, this.queueLength, this.comparator,
+          this.equals);
       return true;
     }
   };
@@ -164,15 +160,13 @@ if (!('jstege1206' in net)) {
   };
 
   /**
-   * Returns the internal queue array. Argument indicates whether the
-   * returned array is a copy of the array, or the array is returned by
-   * reference.
-   * @param {boolean} reference true if the returned array should refer to
-   * the internal queue, false or not present if it should be a copy.
+   * Returns the internal queue array. Argument representing true indicates
+   * whether the returned array is a copy of the array, or the array is
+   * returned by reference.
    * @return {Array} (Possibly a copy of) the internal queue array.
    */
-  PriorityQueue.prototype.getData = function(reference) {
-    if (reference) {
+  PriorityQueue.prototype.getData = function() {
+    if (arguments.length > 0 && arguments[0]) {
       return this.queue;
     }
     return this.queue.slice();
@@ -275,16 +269,16 @@ if (!('jstege1206' in net)) {
     var half = (queueLength / 2) | 0;
     while (pos < half) {
       var lChild = pos * 2 + 1;
-      var c = queue[lChild];
+      var childObj = queue[lChild];
       var rChild = lChild + 1;
-      if (rChild < queueLength && comparator(c, queue[rChild]) > 0) {
+      if (rChild < queueLength && comparator(childObj, queue[rChild]) > 0) {
         lChild = rChild;
-        c = queue[lChild];
+        childObj = queue[lChild];
       }
-      if (comparator(obj, c) <= 0) {
+      if (comparator(obj, childObj) <= 0) {
         break;
       }
-      queue[pos] = c;
+      queue[pos] = childObj;
       pos = lChild;
     }
     queue[pos] = obj;
@@ -319,25 +313,19 @@ if (!('jstege1206' in net)) {
    * @param {number} queueLength The length of the queue.
    * @param {function} comparator The comparator to use.
    * @param {function} equals The equals function to use.
-   * @return {*} The element which was removed, or null if the element was
-   * not found.
    * @private
    */
   function _removeAt(pos, queue, queueLength, comparator, equals) {
     if (queueLength == pos) {
-      queue[queueLength] = null;
+      delete queue[queueLength];
     } else {
       var moved = queue[queueLength];
       queue[queueLength] = null;
       _siftDown(pos, moved, queue, queueLength, comparator);
       if (equals(queue[pos], moved)) {
         _siftUp(pos, moved, queue, comparator);
-        if (!equals(queue[pos], moved)) {
-          return moved;
-        }
       }
     }
-    return null;
   }
 
   /**
@@ -363,3 +351,7 @@ if (!('jstege1206' in net)) {
 
   net.jstege1206.PriorityQueue = PriorityQueue;
 })();
+
+if (typeof exports !== 'undefined') {
+  exports.PriorityQueue = net.jstege1206.PriorityQueue;
+}

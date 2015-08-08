@@ -129,12 +129,12 @@ function testRemove() {
 
   queue.remove(new createObject(1));
   if (queue.size() != 2) {
-    throw new Error('Error when removing object. ' + queue.getData(false));
+    throw new Error('Error when removing object. ' + queue.getData());
   }
-
+  console.log(queue.getData());
   queue.poll();
   if (queue.poll().value != 2) {
-    throw new Error('Error when removing object. ' + queue.getData(false));
+    throw new Error('Error when removing object. ' + queue.getData());
   }
 }
 
@@ -149,7 +149,7 @@ function testClear() {
   queue.clear();
   if (qs != 0 && queue.size() != 0) {
     throw new Error('Error when clearing the queue. Queue not empty. ' +
-        queue.getData(false));
+        queue.getData());
   }
 }
 
