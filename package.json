@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:j-stege/PriorityQueueJS.git"
+    "url": "git@github.com:JStege1206/PriorityQueue.git"
   },
   "keywords": [
     "priority-queue",
@@ -17,5 +17,5 @@
     "binary-heap"
   ],
   "author": "Jelle Stege <jstege1206@gmail.com>",
-  "license": "MIT"
+  "license": "Public Domain"
 }
