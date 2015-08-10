@@ -1,6 +1,6 @@
 /**
- * PriorityQueueJS, a priority queue implementation in Javascript.
- * Supports queueing, dequeuing, fixed and variable capacity and removing
+ * PriorityQueue, a priority queue implementation in Javascript.
+ * Supports queueing, dequeuing, peeking and removing
  * elements from the queue by value.
  *
  * @author jstege1206@gmail.com (Jelle Stege)
@@ -352,6 +352,10 @@ if (!('jstege1206' in net)) {
   net.jstege1206.PriorityQueue = PriorityQueue;
 })();
 
-if (typeof exports !== 'undefined') {
-  exports.PriorityQueue = net.jstege1206.PriorityQueue;
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  /**
+   * Exports PriorityQueue to nodejs
+   * @type {PriorityQueue}
+   */
+  module.exports = exports = PriorityQueue = net.jstege1206.PriorityQueue;
 }

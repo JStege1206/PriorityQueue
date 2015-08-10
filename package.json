@@ -1,11 +1,11 @@
 {
-  "name": "PriorityQueue",
+  "name": "minmaxpriorityqueue",
   "version": "0.9.0",
-  "description": "A priority queue implementation in JavaScript using a binary min heap.",
+  "description": "A priority queue implementation in JavaScript using a binary min/max heap.",
   "main": "priorityqueue.js",
   "directories": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/priorityqueuetest.js"
   },
   "repository": {
     "type": "git",
@@ -13,9 +13,16 @@
   },
   "keywords": [
     "priority-queue",
+    "priority",
     "queue",
-    "binary-heap"
+    "heap",
+    "binary-heap",
+    "min-heap",
+    "binary-min-heap"
   ],
   "author": "Jelle Stege <jstege1206@gmail.com>",
-  "license": "Public Domain"
+  "license": "MIT",
+  "devDependencies": {
+    "vows": "^0.8.1"
+  }
 }

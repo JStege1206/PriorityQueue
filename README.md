@@ -1,5 +1,5 @@
 # PriorityQueue
-PriorityQueue is a Javascript implementation of a min PriorityQueue.
+PriorityQueue is a Javascript implementation of a min/max PriorityQueue.
 
 ## Documentation
 ### Constructor
@@ -28,8 +28,8 @@ function compare(a, b) {
   **array** The initial dataset to use to create a priority queue from. Accepts an array.
 * equals:
   **function** The equals function to use. This is used for checking whether or not an element is
-   in the queue. By default, equals will check if 2 values are equal by a simple `a == b` check.
-   If this is not enough, write your own equals function.
+  in the queue. By default, equals will check if 2 values are equal by a simple `a == b` check.
+  If this is not enough, write your own equals function.
 
 ### Methods
 * `clear()`:
