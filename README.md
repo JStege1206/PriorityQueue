@@ -69,5 +69,17 @@ function compare(a, b) {
 * `getEquals()`
   Returns the equals function used.
 
+## Installation
+Installing this package is easily done. You can use one of the following options:
+* NPM: This package is available in the NPM repository, you can install it by running the
+following command:
+```
+npm install minmaxpriorityqueue
+```
+* Downloading a ZIP file containing the sources from
+[this link](https://github.com/JStege1206/PriorityQueue/archive/master.zip).
+* Cloning the GIT repository by cloning [this link](git@github.com:JStege1206/PriorityQueue.git)
+
 ## License
-This code is released in the public domain. I do not claim any ownership and waive all my rights.
+This code is released under the MIT license. Do what you want with it, just leave the copyright
+notice present as is required by MIT.
