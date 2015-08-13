@@ -7,7 +7,7 @@ PriorityQueue is a Javascript implementation of a min/max PriorityQueue.
 var queue = new PriorityQueue(options)
 ```
 The constructor checks if the given options object contains one of the following fields:
-* comperator:
+* comparator:
   **function** The comparator to use when comparing elements in the queue. This is used for
   sorting the queue. When adding elements which can not be easily compared, supply a comparator
   which is able to compare the given object. Not using a right comparator will result in

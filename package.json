@@ -24,5 +24,9 @@
   "license": "MIT",
   "devDependencies": {
     "vows": "^0.8.1"
+  },
+  "bugs": {
+    "url": "https://github.com/JStege1206/PriorityQueue/issues",
+    "email": "jstege1206@gmail.com"
   }
 }
