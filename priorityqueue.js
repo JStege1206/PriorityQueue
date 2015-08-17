@@ -201,22 +201,19 @@ if (!('jstege1206' in net)) {
    */
   PriorityQueue.prototype.setData = function(data, size) {
     var arr = [];
-    data.forEach(function(val) {
-      arr.push(val);
-    });
+    if (data.forEach) {
+      data.forEach(function(val) {
+        arr.push(val);
+      });
+    } else {
+      var val;
+      for (val in data) {
+        arr.push(data[val]);
+      }
+    }
     this.queue = arr;
     this.queueLength = size ? size : data.length;
     this.heapify();
-  };
-
-  /**
-   * Sets the comparator to use.
-   * @param {function} func The comparator to use.
-   */
-  PriorityQueue.prototype.setComparator = function(func) {
-    if (typeof func == 'function') {
-      this.comparator = func;
-    }
   };
 
   /**
@@ -225,16 +222,6 @@ if (!('jstege1206' in net)) {
    */
   PriorityQueue.prototype.getComparator = function() {
     return this.comparator;
-  };
-
-  /**
-   * Sets the equals function to use.
-   * @param {function} func The equals function to use.
-   */
-  PriorityQueue.prototype.setEquals = function(func) {
-    if (typeof func == 'function') {
-      this.equals = func;
-    }
   };
 
   /**

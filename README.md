@@ -1,6 +1,11 @@
 # PriorityQueue
 PriorityQueue is a Javascript implementation of a min/max PriorityQueue.
 
+## Recent changes
+### V1.0
+In version 1.0 support for setComparator(func) and setEquals(func) is removed. These methods
+resulted in unsuspected behaviour. When these functions are needed, please revert to version
+[0.9.2](https://github.com/JStege1206/PriorityQueue/tree/e1d7fbb667dc97608dd6f71f3d9f73781e2b2088).
 ## Documentation
 ### Constructor
 ```javascript
@@ -25,7 +30,8 @@ function compare(a, b) {
 }
 ```
 * data:
-  **array** The initial dataset to use to create a priority queue from. Accepts an array.
+  **iterable** The initial dataset to use to create a priority queue from. Accepts objects which
+  support a forEach function or are iterable through a for/in loop.
 * equals:
   **function** The equals function to use. This is used for checking whether or not an element is
   in the queue. By default, equals will check if 2 values are equal by a simple `a == b` check.
@@ -60,11 +66,11 @@ function compare(a, b) {
 * `clone()`:
   Copies the queue by value into a new PriorityQueue object with the same values as the original
   queue.
-* `setComparator(func)`:
+* `setComparator(func)` *REMOVED IN V1.0*:
   Sets the comparator to be used.
 * `getComparator()`:
   Returns the comparator used.
-* `setEquals(func)`
+* `setEquals(func)` *REMOVED IN V1.0*:
   Sets the equals function to be used.
 * `getEquals()`
   Returns the equals function used.
